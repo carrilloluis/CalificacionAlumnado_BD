@@ -1,0 +1,33 @@
+@startuml cda1
+	skin rose
+	hide circle
+	hide empty members
+
+	entity Alumno {
+		*id : CHAR
+		nombres : VARCHAR
+		apellidos : VARCHAR
+		dirección : VARCHAR
+		teléfono : VARCHAR
+	}
+	entity Docente {
+		*id : CHAR
+		nombres : VARCHAR
+		apellidos : VARCHAR
+	}
+	entity Asignatura {
+		*id : CHAR
+		denominación : VARCHAR
+	}
+	entity PuntajeAcadémico {
+		*id : INTEGER
+		id_asignatura : CHAR
+		id_alumno : CHAR
+		id_docente : CHAR
+		fecha_asignación : DATETIME 
+		puntaje : CHAR
+	}
+	PuntajeAcadémico }|--|| Asignatura
+	PuntajeAcadémico }|--|| Docente
+	PuntajeAcadémico }o--|| Alumno
+@enduml
